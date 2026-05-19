@@ -1,4 +1,4 @@
-# 💕 Shailu & bhavi — Our Little World
+# 💕 Shailu & Bhavi — Our Little World
 
 A beautiful, private long-distance relationship web app built with Next.js + Firebase Realtime Database, deployable to Vercel.
 
@@ -20,7 +20,7 @@ A beautiful, private long-distance relationship web app built with Next.js + Fir
 ### Step 1 — Create a Firebase project
 
 1. Go to [https://console.firebase.google.com](https://console.firebase.google.com)
-2. Click **Add project** → name it `shailu-bhavi-lovespace`
+2. Click **Add project** → name it `shailu-Bhavi-lovespace`
 3. Disable Google Analytics (optional) → Create project
 4. In the left sidebar: **Build → Realtime Database**
 5. Click **Create Database** → choose a region → start in **test mode**
@@ -72,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000)
 3. In Vercel project settings → **Environment Variables**, add all the `NEXT_PUBLIC_*` variables from your `.env.local`
 4. Deploy! 🎉
 
-Share the Vercel URL with bhavi and log in as yourselves 💕
+Share the Vercel URL with Bhavi and log in as yourselves 💕
 
 ---
 
@@ -96,4 +96,4 @@ Share the Vercel URL with bhavi and log in as yourselves 💕
 
 ---
 
-Made with 💕 for Shailu & bhavi. Together since Jan 20, 2026 🌸
+Made with 💕 for Shailu & Bhavi. Together since Jan 20, 2026 🌸

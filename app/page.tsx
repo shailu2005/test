@@ -6,13 +6,13 @@ import dynamic from 'next/dynamic';
 const LoveApp = dynamic(() => import('@/components/LoveApp'), { ssr: false });
 
 export default function Home() {
-  const [user, setUser] = useState<'shailu' | 'bhavi' | null>(null);
+  const [user, setUser] = useState<'shailu' | 'Bhavi' | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem('loveapp_user');
-    if (saved === 'shailu' || saved === 'bhavi') setUser(saved);
+    if (saved === 'shailu' || saved === 'Bhavi') setUser(saved);
   }, []);
 
   if (!mounted) return null;
@@ -30,7 +30,7 @@ export default function Home() {
   }} />;
 }
 
-function LoginScreen({ onLogin }: { onLogin: (u: 'shailu' | 'bhavi') => void }) {
+function LoginScreen({ onLogin }: { onLogin: (u: 'shailu' | 'Bhavi') => void }) {
   const [petals] = useState(() =>
     Array.from({ length: 12 }, (_, i) => ({
       id: i,
@@ -74,7 +74,7 @@ function LoginScreen({ onLogin }: { onLogin: (u: 'shailu' | 'bhavi') => void }) 
           Our Little World
         </h1>
         <p className="font-body text-lg mb-2" style={{ color: '#c084a0' }}>
-          Shailu & bhavi's cozy corner 🌸
+          Shailu & Bhavi's cozy corner 🌸
         </p>
         <p className="font-body text-sm mb-10" style={{ color: '#c084a0' }}>
           Together since Jan 20, 2026 ✨
@@ -92,10 +92,10 @@ function LoginScreen({ onLogin }: { onLogin: (u: 'shailu' | 'bhavi') => void }) 
             <div className="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
           </button>
           
-          <button onClick={() => onLogin('bhavi')}
+          <button onClick={() => onLogin('Bhavi')}
             className="group relative px-8 py-4 rounded-2xl font-display text-white text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             style={{ background: 'linear-gradient(135deg, #ec4899, #db2777)', boxShadow: '0 8px 24px rgba(236,72,153,0.35)' }}>
-            <span className="text-2xl mr-2">👩</span> I'm bhavi 👑
+            <span className="text-2xl mr-2">👩</span> I'm Bhavi 👑
             <div className="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
           </button>
         </div>

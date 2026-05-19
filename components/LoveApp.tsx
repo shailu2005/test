@@ -6,7 +6,7 @@ import { ref, set, onValue, push, serverTimestamp, update } from 'firebase/datab
 import { formatDistanceToNow, differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-type User = 'shailu' | 'bhavi';
+type User = 'shailu' | 'Bhavi';
 
 interface Mood {
   emoji: string;
@@ -99,17 +99,17 @@ function useCountup() {
 // ─── Main App ─────────────────────────────────────────────────────────────────
 export default function LoveApp({ currentUser, onLogout }: { currentUser: User; onLogout: () => void }) {
   const [tab, setTab] = useState<'home' | 'chat' | 'moods' | 'memories' | 'map' | 'wishes'>('home');
-  const [online, setOnline] = useState<Record<User, boolean>>({ shailu: false, bhavi: false });
-  const [moods, setMoods] = useState<Record<User, Mood | null>>({ shailu: null, bhavi: null });
+  const [online, setOnline] = useState<Record<User, boolean>>({ shailu: false, Bhavi: false });
+  const [moods, setMoods] = useState<Record<User, Mood | null>>({ shailu: null, Bhavi: null });
   const [messages, setMessages] = useState<Message[]>([]);
-  const [locations, setLocations] = useState<Record<User, LocationData | null>>({ shailu: null, bhavi: null });
+  const [locations, setLocations] = useState<Record<User, LocationData | null>>({ shailu: null, Bhavi: null });
   const [memories, setMemories] = useState<Memory[]>([]);
   const [wishlist, setWishlist] = useState<Wishlist[]>([]);
   const [newNotif, setNewNotif] = useState<string | null>(null);
   const elapsed = useCountup();
 
-  const other: User = currentUser === 'shailu' ? 'bhavi' : 'shailu';
-  const otherName = currentUser === 'shailu' ? 'bhavi 👑' : 'Shailu 💙';
+  const other: User = currentUser === 'shailu' ? 'Bhavi' : 'shailu';
+  const otherName = currentUser === 'shailu' ? 'Bhavi 👑' : 'Shailu 💙';
 
   // ── Firebase listeners ──────────────────────────────────────────────────────
   useEffect(() => {
@@ -123,7 +123,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
       const data = snap.val() || {};
       setOnline({
         shailu: data.shailu?.online || false,
-        bhavi: data.bhavi?.online || false,
+        Bhavi: data.Bhavi?.online || false,
       });
     });
 
@@ -131,7 +131,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
       const data = snap.val() || {};
       setMoods({
         shailu: data.shailu || null,
-        bhavi: data.bhavi || null,
+        Bhavi: data.Bhavi || null,
       });
     });
 
@@ -144,7 +144,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
 
     const unsub4 = onValue(ref(db, 'locations'), snap => {
       const data = snap.val() || {};
-      setLocations({ shailu: data.shailu || null, bhavi: data.bhavi || null });
+      setLocations({ shailu: data.shailu || null, Bhavi: data.Bhavi || null });
     });
 
     const unsub5 = onValue(ref(db, 'memories'), snap => {
@@ -214,7 +214,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
             <span className="heartbeat text-2xl">💕</span>
             <div>
               <h1 className="font-display text-base font-bold leading-tight" style={{ color: '#7c2d44' }}>
-                Shailu & bhavi
+                Shailu & Bhavi
               </h1>
               <p className="text-xs" style={{ color: '#c084a0' }}>
                 <span className={`inline-block w-2 h-2 rounded-full mr-1 ${online[other] ? 'bg-green-400' : 'bg-gray-300'}`} />
@@ -224,7 +224,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs px-2 py-1 rounded-full" style={{ background: '#fce7f3', color: '#be185d' }}>
-              {currentUser === 'shailu' ? '👦 Shailu' : '👩 bhavi'}
+              {currentUser === 'shailu' ? '👦 Shailu' : '👩 Bhavi'}
             </span>
             <button onClick={onLogout} className="text-xs px-2 py-1 rounded-lg hover:bg-pink-100 transition-colors" style={{ color: '#c084a0' }}>
               ✕
@@ -295,7 +295,7 @@ function HomeTab({ elapsed, moods, currentUser, otherName, online, shareLocation
   online: Record<User, boolean>;
   shareLocation: () => void;
 }) {
-  const other: User = currentUser === 'shailu' ? 'bhavi' : 'shailu';
+  const other: User = currentUser === 'shailu' ? 'Bhavi' : 'shailu';
   const quotes = [
     "Distance means so little when someone means so much 💕",
     "In a sea of people, my eyes will always search for you 🌊",
@@ -340,11 +340,11 @@ function HomeTab({ elapsed, moods, currentUser, otherName, online, shareLocation
           How we're feeling 🌡️
         </h3>
         <div className="flex gap-3 justify-around">
-          {(['shailu', 'bhavi'] as User[]).map(u => (
+          {(['shailu', 'Bhavi'] as User[]).map(u => (
             <div key={u} className="flex-1 rounded-2xl p-3 text-center" style={{ background: 'rgba(253,232,238,0.7)' }}>
               <div className="text-3xl mb-1">{moods[u]?.emoji || '🌙'}</div>
               <div className="text-xs font-semibold" style={{ color: '#7c2d44' }}>
-                {u === 'shailu' ? 'Shailu' : 'bhavi 👑'}
+                {u === 'shailu' ? 'Shailu' : 'Bhavi 👑'}
               </div>
               <div className="text-xs mt-0.5" style={{ color: '#c084a0' }}>
                 {moods[u]?.label || 'Not set yet'}
@@ -544,7 +544,7 @@ function MoodsTab({ currentUser, moods, otherName, setNewNotif }: {
   otherName: string;
   setNewNotif: (s: string | null) => void;
 }) {
-  const other: User = currentUser === 'shailu' ? 'bhavi' : 'shailu';
+  const other: User = currentUser === 'shailu' ? 'Bhavi' : 'shailu';
   const [emotion, setEmotion] = useState('');
 
   const setMood = (mood: Mood) => {
@@ -734,7 +734,7 @@ function MemoriesTab({ memories, currentUser, setNewNotif }: {
               </div>
               {mem.note && <p className="text-xs mt-1 leading-relaxed" style={{ color: '#9f1239', opacity: 0.8 }}>{mem.note}</p>}
               <p className="text-xs mt-1.5" style={{ color: '#c084a0' }}>
-                from {mem.from === 'shailu' ? 'Shailu 💙' : 'bhavi 👑'} · {formatDistanceToNow(mem.timestamp, { addSuffix: true })}
+                from {mem.from === 'shailu' ? 'Shailu 💙' : 'Bhavi 👑'} · {formatDistanceToNow(mem.timestamp, { addSuffix: true })}
               </p>
             </div>
           </div>
@@ -750,9 +750,9 @@ function MapTab({ locations, currentUser, shareLocation }: {
   currentUser: User;
   shareLocation: () => void;
 }) {
-  const other: User = currentUser === 'shailu' ? 'bhavi' : 'shailu';
-  const dist = locations.shailu && locations.bhavi
-    ? Math.round(getDistance(locations.shailu.lat, locations.shailu.lng, locations.bhavi.lat, locations.bhavi.lng))
+  const other: User = currentUser === 'shailu' ? 'Bhavi' : 'shailu';
+  const dist = locations.shailu && locations.Bhavi
+    ? Math.round(getDistance(locations.shailu.lat, locations.shailu.lng, locations.Bhavi.lat, locations.Bhavi.lng))
     : null;
 
   return (
@@ -787,9 +787,9 @@ function MapTab({ locations, currentUser, shareLocation }: {
 
           <div className="text-center">
             <div className="text-3xl">👩</div>
-            <div className="text-xs mt-1" style={{ color: '#7c2d44' }}>bhavi 👑</div>
-            {locations.bhavi && (
-              <div className="text-xs" style={{ color: '#c084a0' }}>{locations.bhavi.city}</div>
+            <div className="text-xs mt-1" style={{ color: '#7c2d44' }}>Bhavi 👑</div>
+            {locations.Bhavi && (
+              <div className="text-xs" style={{ color: '#c084a0' }}>{locations.Bhavi.city}</div>
             )}
           </div>
         </div>
@@ -810,13 +810,13 @@ function MapTab({ locations, currentUser, shareLocation }: {
 
       {/* Location cards */}
       <div className="space-y-3">
-        {(['shailu', 'bhavi'] as User[]).map(u => (
+        {(['shailu', 'Bhavi'] as User[]).map(u => (
           locations[u] && (
             <div key={u} className="glass rounded-2xl p-4 flex gap-3 items-center">
               <span className="text-2xl">{u === 'shailu' ? '👦' : '👩'}</span>
               <div>
                 <p className="font-semibold text-sm" style={{ color: '#7c2d44' }}>
-                  {u === 'shailu' ? 'Shailu' : 'bhavi 👑'} is in {locations[u]!.city}
+                  {u === 'shailu' ? 'Shailu' : 'Bhavi 👑'} is in {locations[u]!.city}
                 </p>
                 <p className="text-xs" style={{ color: '#c084a0' }}>
                   📍 {locations[u]!.lat.toFixed(4)}, {locations[u]!.lng.toFixed(4)} · {formatDistanceToNow(locations[u]!.timestamp, { addSuffix: true })}
@@ -918,7 +918,7 @@ function WishlistTab({ wishlist, currentUser, otherName, setNewNotif }: {
               <div className="flex-1 min-w-0">
                 <p className="text-sm" style={{ color: '#7c2d44' }}>{w.item}</p>
                 <p className="text-xs" style={{ color: '#c084a0' }}>
-                  from {w.from === 'shailu' ? 'Shailu 💙' : 'bhavi 👑'}
+                  from {w.from === 'shailu' ? 'Shailu 💙' : 'Bhavi 👑'}
                 </p>
               </div>
             </div>
