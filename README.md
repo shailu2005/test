@@ -1,4 +1,4 @@
-# 💕 Shailu & Madam — Our Little World
+# 💕 Shailu & bhavi — Our Little World
 
 A beautiful, private long-distance relationship web app built with Next.js + Firebase Realtime Database, deployable to Vercel.
 
@@ -72,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000)
 3. In Vercel project settings → **Environment Variables**, add all the `NEXT_PUBLIC_*` variables from your `.env.local`
 4. Deploy! 🎉
 
-Share the Vercel URL with Madam and log in as yourselves 💕
+Share the Vercel URL with bhavi and log in as yourselves 💕
 
 ---
 
@@ -96,4 +96,4 @@ Share the Vercel URL with Madam and log in as yourselves 💕
 
 ---
 
-Made with 💕 for Shailu & Madam. Together since Jan 20, 2026 🌸
+Made with 💕 for Shailu & bhavi. Together since Jan 20, 2026 🌸

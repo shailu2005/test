@@ -109,7 +109,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
   const elapsed = useCountup();
 
   const other: User = currentUser === 'shailu' ? 'bhavi' : 'shailu';
-  const otherName = currentUser === 'shailu' ? 'Madam 👑' : 'Shailu 💙';
+  const otherName = currentUser === 'shailu' ? 'bhavi 👑' : 'Shailu 💙';
 
   // ── Firebase listeners ──────────────────────────────────────────────────────
   useEffect(() => {
@@ -214,7 +214,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
             <span className="heartbeat text-2xl">💕</span>
             <div>
               <h1 className="font-display text-base font-bold leading-tight" style={{ color: '#7c2d44' }}>
-                Shailu & Madam
+                Shailu & bhavi
               </h1>
               <p className="text-xs" style={{ color: '#c084a0' }}>
                 <span className={`inline-block w-2 h-2 rounded-full mr-1 ${online[other] ? 'bg-green-400' : 'bg-gray-300'}`} />
@@ -224,7 +224,7 @@ export default function LoveApp({ currentUser, onLogout }: { currentUser: User; 
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs px-2 py-1 rounded-full" style={{ background: '#fce7f3', color: '#be185d' }}>
-              {currentUser === 'shailu' ? '👦 Shailu' : '👩 Madam'}
+              {currentUser === 'shailu' ? '👦 Shailu' : '👩 bhavi'}
             </span>
             <button onClick={onLogout} className="text-xs px-2 py-1 rounded-lg hover:bg-pink-100 transition-colors" style={{ color: '#c084a0' }}>
               ✕
@@ -344,7 +344,7 @@ function HomeTab({ elapsed, moods, currentUser, otherName, online, shareLocation
             <div key={u} className="flex-1 rounded-2xl p-3 text-center" style={{ background: 'rgba(253,232,238,0.7)' }}>
               <div className="text-3xl mb-1">{moods[u]?.emoji || '🌙'}</div>
               <div className="text-xs font-semibold" style={{ color: '#7c2d44' }}>
-                {u === 'shailu' ? 'Shailu' : 'Madam 👑'}
+                {u === 'shailu' ? 'Shailu' : 'bhavi 👑'}
               </div>
               <div className="text-xs mt-0.5" style={{ color: '#c084a0' }}>
                 {moods[u]?.label || 'Not set yet'}
@@ -734,7 +734,7 @@ function MemoriesTab({ memories, currentUser, setNewNotif }: {
               </div>
               {mem.note && <p className="text-xs mt-1 leading-relaxed" style={{ color: '#9f1239', opacity: 0.8 }}>{mem.note}</p>}
               <p className="text-xs mt-1.5" style={{ color: '#c084a0' }}>
-                from {mem.from === 'shailu' ? 'Shailu 💙' : 'Madam 👑'} · {formatDistanceToNow(mem.timestamp, { addSuffix: true })}
+                from {mem.from === 'shailu' ? 'Shailu 💙' : 'bhavi 👑'} · {formatDistanceToNow(mem.timestamp, { addSuffix: true })}
               </p>
             </div>
           </div>
@@ -787,7 +787,7 @@ function MapTab({ locations, currentUser, shareLocation }: {
 
           <div className="text-center">
             <div className="text-3xl">👩</div>
-            <div className="text-xs mt-1" style={{ color: '#7c2d44' }}>Madam 👑</div>
+            <div className="text-xs mt-1" style={{ color: '#7c2d44' }}>bhavi 👑</div>
             {locations.bhavi && (
               <div className="text-xs" style={{ color: '#c084a0' }}>{locations.bhavi.city}</div>
             )}
@@ -816,7 +816,7 @@ function MapTab({ locations, currentUser, shareLocation }: {
               <span className="text-2xl">{u === 'shailu' ? '👦' : '👩'}</span>
               <div>
                 <p className="font-semibold text-sm" style={{ color: '#7c2d44' }}>
-                  {u === 'shailu' ? 'Shailu' : 'Madam 👑'} is in {locations[u]!.city}
+                  {u === 'shailu' ? 'Shailu' : 'bhavi 👑'} is in {locations[u]!.city}
                 </p>
                 <p className="text-xs" style={{ color: '#c084a0' }}>
                   📍 {locations[u]!.lat.toFixed(4)}, {locations[u]!.lng.toFixed(4)} · {formatDistanceToNow(locations[u]!.timestamp, { addSuffix: true })}
@@ -918,7 +918,7 @@ function WishlistTab({ wishlist, currentUser, otherName, setNewNotif }: {
               <div className="flex-1 min-w-0">
                 <p className="text-sm" style={{ color: '#7c2d44' }}>{w.item}</p>
                 <p className="text-xs" style={{ color: '#c084a0' }}>
-                  from {w.from === 'shailu' ? 'Shailu 💙' : 'Madam 👑'}
+                  from {w.from === 'shailu' ? 'Shailu 💙' : 'bhavi 👑'}
                 </p>
               </div>
             </div>
