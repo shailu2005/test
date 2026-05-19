@@ -414,7 +414,7 @@ function ChatTab({ messages, currentUser, otherName, setNewNotif }: {
   messages: Message[];
   currentUser: User;
   otherName: string;
-  setNewNotif: (s: string) => void;
+  setNewNotif: (s: string | null) => void;
 }) {
   const [text, setText] = useState('');
   const [type, setType] = useState<'text' | 'letter'>('text');
@@ -542,7 +542,7 @@ function MoodsTab({ currentUser, moods, otherName, setNewNotif }: {
   currentUser: User;
   moods: Record<User, Mood | null>;
   otherName: string;
-  setNewNotif: (s: string) => void;
+  setNewNotif: (s: string | null) => void;
 }) {
   const other: User = currentUser === 'shailu' ? 'bhavi' : 'shailu';
   const [emotion, setEmotion] = useState('');
@@ -641,7 +641,7 @@ function MoodsTab({ currentUser, moods, otherName, setNewNotif }: {
 function MemoriesTab({ memories, currentUser, setNewNotif }: {
   memories: Memory[];
   currentUser: User;
-  setNewNotif: (s: string) => void;
+  setNewNotif: (s: string | null) => void;
 }) {
   const [adding, setAdding] = useState(false);
   const [form, setForm] = useState({ title: '', note: '', emoji: '🌸', date: '' });
@@ -850,7 +850,7 @@ function WishlistTab({ wishlist, currentUser, otherName, setNewNotif }: {
   wishlist: Wishlist[];
   currentUser: User;
   otherName: string;
-  setNewNotif: (s: string) => void;
+  setNewNotif: (s: string | null) => void;
 }) {
   const [input, setInput] = useState('');
 
